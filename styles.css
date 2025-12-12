@@ -1,9 +1,9 @@
 :root{
-  --guinda:#9d2148;    /* Guinda institucional */
-  --dorado:#b28e5c;    /* Dorado institucional */
+  --guinda:#9d2148;
+  --dorado:#b28e5c;
   --blanco:#ffffff;
   --gris:#111;
-  --curve-speed: 2.8s; /* Velocidad trazo dorado */
+  --curve-speed: 2.8s;
 }
 
 *{box-sizing:border-box}
@@ -20,7 +20,7 @@ body{
   padding:0 16px;
 }
 
-/* 1. Banner superior blanco */
+/* 1. Header */
 .top-bar{
   background:#fff;
   height:82px;
@@ -31,11 +31,11 @@ body{
   animation: bandFade .6s ease both;
 }
 .top-bar img{
-  height:72px;      /* logo más grande */
+  height:72px;
   width:auto;
 }
 
-/* 2. Hero con patrón rojo */
+/* 2. Hero Section */
 .hero{
   color:#fff;
   position:relative;
@@ -82,7 +82,6 @@ h1 .line{
   font-size:clamp(14px,2.7vw,18px);
 }
 
-/* Foto de perfil */
 .avatar{
   width:132px;
   height:132px;
@@ -95,34 +94,33 @@ h1 .line{
   animation: avatarPop .5s ease .2s both;
 }
 
-/* 3. Curva orgánica */
+/* 3. Curva */
 .curve{position:relative;z-index:1}
 .curve svg{display:block;width:100%;height:auto}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
   stroke:var(--dorado);
-  stroke-width:13;              /* grosor de la línea dorada */
+  stroke-width:13;
   stroke-linecap:round;
   stroke-dasharray:1000;
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
 }
 
-/* 4. Fondo de acciones (patrón blanco) */
+/* 4. Contenedor de Acciones */
 .actions-bg{
   background:#fff url('patron_blanco.jpg') center/cover no-repeat;
-  padding:22px 0 32px;          /* menos aire debajo */
+  padding:22px 0 32px;
 }
 
-/* min-height solo en pantallas pequeñas para que se vea “lleno” */
+/* Ajuste Innovador: dvh para móviles modernos */
 @media (max-width: 768px){
   .actions-bg{
-    min-height:calc(100vh - 82px);
+    min-height: calc(100dvh - 82px);
   }
 }
 
-/* 5. Botones */
 .actions{
   display:flex;
   flex-direction:column;
@@ -130,12 +128,18 @@ h1 .line{
   max-width:420px;
   margin:0 auto;
 }
+
+/* 5. Estilo de Botones (Links y Button) */
 .btn{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:12px;
   text-decoration:none;
+  font-family: inherit; /* Para el tag button */
+  font-size: 1rem;      /* Para el tag button */
+  cursor: pointer;      /* Para el tag button */
+  width: 100%;          /* Asegura ancho completo */
   font-weight:700;
   border-radius:12px;
   padding:10px 14px;
@@ -147,10 +151,13 @@ h1 .line{
   box-shadow:0 0 0 rgba(0,0,0,0);
   animation: btnIn .5s ease both;
 }
+/* Cascara de animación para botones sucesivos */
 .actions .btn:nth-child(1){animation-delay:.05s}
 .actions .btn:nth-child(2){animation-delay:.1s}
 .actions .btn:nth-child(3){animation-delay:.15s}
 .actions .btn:nth-child(4){animation-delay:.2s}
+.actions .btn:nth-child(5){animation-delay:.25s}
+
 .btn:hover{background:#f7f2f5}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{
@@ -158,23 +165,24 @@ h1 .line{
   outline-offset:2px;
   box-shadow:0 0 0 3px rgba(157,33,72,.15);
 }
+
 .icon svg{
   width:20px;
   height:20px;
   display:block;
 }
 
-/* 6. Corazón CDMX debajo de los botones */
+/* 6. Corazón */
 .hero-heart{
   display:block;
-  margin:6px auto 0;                    /* más pegado al botón */
-  width:clamp(110px, 15vw, 170px);      /* responsive: min 110, ideal 15vw, max 170 */
+  margin:12px auto 0;
+  width:clamp(110px, 15vw, 170px);
   height:auto;
   animation: heartbeat 1.6s ease-in-out infinite;
   pointer-events:none;
 }
 
-/* 7. Animaciones */
+/* 7. Keyframes */
 @keyframes heroIn{
   from{opacity:0; transform:translateY(8px)}
   to{opacity:1; transform:none}
@@ -202,19 +210,14 @@ h1 .line{
   100%{transform:scale(1)}
 }
 
-/* Reduce animaciones si el usuario lo pide */
+/* Preferencias de movimiento reducido */
 @media (prefers-reduced-motion:reduce){
-  .btn,
-  .hero > .wrap,
-  .avatar,
-  .curve-stroke,
-  .top-bar,
-  .hero-heart{
+  .btn, .hero > .wrap, .avatar, .curve-stroke, .top-bar, .hero-heart{
     animation:none;
   }
 }
 
-/* Desktop: avatar más grande */
+/* Escritorio */
 @media(min-width:760px){
   .avatar{width:168px;height:168px}
 }
