@@ -2,7 +2,7 @@
   --guinda:#9d2148;
   --dorado:#b28e5c;
   --blanco:#ffffff;
-  --gris:#111;
+  --gris:#222; /* Gris un poco más suave que el negro puro */
   --curve-speed: 2.8s;
 }
 
@@ -10,29 +10,36 @@
 html,body{height:100%}
 body{
   margin:0;
-  font-family:'Roboto',sans-serif;
+  /* Tipografía base más legible */
+  font-family:'Roboto', system-ui, -apple-system, sans-serif;
   color:var(--gris);
   background:#fff;
+  /* Previene rebote elástico en iOS */
+  overscroll-behavior-y: none; 
 }
 .wrap{
   max-width:720px;
   margin:0 auto;
-  padding:0 16px;
+  padding:0 20px; /* Un poco más de aire lateral */
 }
 
 /* 1. Header */
 .top-bar{
   background:#fff;
-  height:82px;
+  height:85px; /* Ligeramente más alto */
   display:flex;
   align-items:center;
   justify-content:center;
-  border-bottom:3px solid var(--dorado);
+  border-bottom:4px solid var(--dorado); /* Borde dorado más presente */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra sutil para profundidad */
   animation: bandFade .6s ease both;
+  position: relative;
+  z-index: 10;
 }
 .top-bar img{
-  height:72px;
+  height:74px; 
   width:auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
 }
 
 /* 2. Hero Section */
@@ -46,156 +53,208 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(157,33,72,0.74);
+  background:linear-gradient(to bottom, rgba(157,33,72,0.85), rgba(157,33,72,0.7));
 }
 .hero > .wrap{
   position:relative;
-  padding:18px 16px 8px;
-  animation: heroIn .7s ease .05s both;
+  padding:24px 20px 10px;
+  animation: heroIn .7s cubic-bezier(0.2, 0.8, 0.2, 1) .05s both;
 }
+
 .hero-grid{
   display:grid;
   grid-template-columns:1fr auto;
-  gap:16px;
+  gap:20px;
   align-items:center;
 }
+
+/* Tipografía mejorada */
 h1{
-  font-family:'Cabin',sans-serif;
+  font-family:'Cabin', sans-serif;
   font-weight:700;
-  margin:0 0 6px;
-  line-height:1.06;
+  margin:0 0 8px;
+  line-height:1.1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15); /* Sombra suave texto */
 }
 h1 .line{
   display:block;
   white-space:nowrap;
-  font-size:clamp(28px,6vw,50px);
+  font-size:clamp(26px, 6.5vw, 48px);
 }
 .role{
-  color:var(--dorado);
+  color: #dcbfa3; /* Un dorado más claro para mejor contraste sobre guinda */
   font-weight:700;
-  margin:2px 0 6px;
-  font-size:clamp(16px,3.5vw,20px);
+  margin:4px 0 6px;
+  font-size:clamp(15px, 4vw, 20px);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 .org{
   margin:0;
-  opacity:.98;
-  font-size:clamp(14px,2.7vw,18px);
+  opacity:.95;
+  font-size:clamp(13px, 3vw, 16px);
+  line-height: 1.3;
+  font-weight: 400;
 }
 
+/* Corrección de la Imagen */
 .avatar{
-  width:132px;
-  height:132px;
+  width:120px;
+  height:120px;
   border-radius:50%;
-  object-fit:cover;
+  
+  /* AQUÍ ESTÁ LA CORRECCIÓN CLAVE */
+  object-fit: cover;
+  object-position: top center; /* Enfoca la cara/cabello, no el pecho */
+  
   border:3px solid #fff;
-  outline:2px solid var(--dorado);
-  outline-offset:-3px;
-  box-shadow:0 3px 12px rgba(0,0,0,.25);
-  animation: avatarPop .5s ease .2s both;
+  outline:3px solid var(--dorado); /* Outline más grueso */
+  outline-offset:-2px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.3);
+  animation: avatarPop .6s cubic-bezier(0.34, 1.56, 0.64, 1) .2s both;
+  background: #f0f0f0; /* Fondo por si tarda en cargar */
 }
 
 /* 3. Curva */
-.curve{position:relative;z-index:1}
+.curve{position:relative;z-index:1; margin-top: -1px;} /* Fix línea blanca */
 .curve svg{display:block;width:100%;height:auto}
 .curve-fill{fill:#fff}
 .curve-stroke{
   fill:none;
   stroke:var(--dorado);
-  stroke-width:13;
+  stroke-width:14;
   stroke-linecap:round;
   stroke-dasharray:1000;
   stroke-dashoffset:1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
+  opacity: 0.9;
 }
 
-/* 4. Contenedor de Acciones */
+/* 4. Acciones */
 .actions-bg{
   background:#fff url('patron_blanco.jpg') center/cover no-repeat;
-  padding:22px 0 32px;
+  padding:25px 0 40px;
 }
 
-/* Ajuste Innovador: dvh para móviles modernos */
+/* UX: Evita saltos en móviles modernos */
 @media (max-width: 768px){
   .actions-bg{
-    min-height: calc(100dvh - 82px);
+    min-height: calc(100dvh - 85px);
+  }
+  /* Ajuste de foto para celular específico */
+  .avatar{
+    width: 100px;
+    height: 100px;
   }
 }
 
 .actions{
   display:flex;
   flex-direction:column;
-  gap:12px;
-  max-width:420px;
+  gap:14px; /* Más espacio entre botones */
+  max-width:400px; /* Botones no tan anchos en desktop */
   margin:0 auto;
 }
 
-/* 5. Estilo de Botones (Links y Button) */
+/* 5. Botones Profesionales */
 .btn{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:14px;
   text-decoration:none;
-  font-family: inherit; /* Para el tag button */
-  font-size: 1rem;      /* Para el tag button */
-  cursor: pointer;      /* Para el tag button */
-  width: 100%;          /* Asegura ancho completo */
-  font-weight:700;
-  border-radius:12px;
-  padding:10px 14px;
-  border:2px solid var(--guinda);
-  border-bottom:3px solid var(--guinda);
-  background:#fff;
+  font-family: inherit;
+  font-size: 16px; 
+  cursor: pointer;
+  width: 100%;
+  font-weight:700; /* Letra más gruesa */
+  border-radius:50px; /* Bordes más redondeados (estilo moderno) */
+  padding:12px 20px; /* Botones más altos (mejor click area) */
+  
+  /* Borde más sólido y visible */
+  border: 2.5px solid var(--guinda);
+  
+  background:rgba(255,255,255,0.95);
   color:var(--guinda);
-  transition:background .2s, transform .05s, box-shadow .2s;
-  box-shadow:0 0 0 rgba(0,0,0,0);
+  
+  /* Sombra suave */
+  box-shadow: 0 4px 6px rgba(157, 33, 72, 0.08);
+  
+  transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Evita selección de texto al hacer click rápido */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  
   animation: btnIn .5s ease both;
 }
-/* Cascara de animación para botones sucesivos */
-.actions .btn:nth-child(1){animation-delay:.05s}
-.actions .btn:nth-child(2){animation-delay:.1s}
-.actions .btn:nth-child(3){animation-delay:.15s}
-.actions .btn:nth-child(4){animation-delay:.2s}
-.actions .btn:nth-child(5){animation-delay:.25s}
 
-.btn:hover{background:#f7f2f5}
-.btn:active{transform:translateY(1px)}
-.btn:focus-visible{
-  outline:3px solid rgba(157,33,72,.25);
-  outline-offset:2px;
-  box-shadow:0 0 0 3px rgba(157,33,72,.15);
+/* Cascada de animación */
+.actions .btn:nth-child(1){animation-delay:.1s}
+.actions .btn:nth-child(2){animation-delay:.15s}
+.actions .btn:nth-child(3){animation-delay:.20s}
+.actions .btn:nth-child(4){animation-delay:.25s}
+.actions .btn:nth-child(5){animation-delay:.30s}
+
+/* Efectos Hover y Active */
+.btn:hover{
+  background: var(--guinda);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(157, 33, 72, 0.2);
+}
+.btn:hover .icon svg{
+   /* Si quisieras cambiar color del icono al hover, aquí */
+}
+
+/* Efecto de "Click" físico */
+.btn:active{
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .icon svg{
-  width:20px;
-  height:20px;
+  width:22px;
+  height:22px;
   display:block;
+  /* El color lo hereda del texto (currentColor) */
 }
 
-/* 6. Corazón */
+/* 6. Corazón Interactivo */
 .hero-heart{
   display:block;
-  margin:12px auto 0;
-  width:clamp(110px, 15vw, 170px);
+  margin:25px auto 5px;
+  width:clamp(100px, 18vw, 150px);
   height:auto;
-  animation: heartbeat 1.6s ease-in-out infinite;
-  pointer-events:none;
+  animation: heartbeat 2s ease-in-out infinite;
+  cursor: pointer; /* Manita en desktop */
+  transition: transform 0.1s;
 }
 
-/* 7. Keyframes */
+.tap-hint{
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+  margin: 0;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Keyframes */
 @keyframes heroIn{
-  from{opacity:0; transform:translateY(8px)}
+  from{opacity:0; transform:translateY(15px)}
   to{opacity:1; transform:none}
 }
 @keyframes avatarPop{
-  0%{opacity:0; transform:scale(.94)}
-  100%{opacity:1; transform:scale(1)}
+  0%{opacity:0; transform:scale(0.5) rotate(-10deg)}
+  100%{opacity:1; transform:scale(1) rotate(0)}
 }
 @keyframes draw{
   to{ stroke-dashoffset:0 }
 }
 @keyframes btnIn{
-  from{opacity:0; transform:translateY(6px)}
+  from{opacity:0; transform:translateY(10px)}
   to{opacity:1; transform:none}
 }
 @keyframes bandFade{
@@ -203,21 +262,14 @@ h1 .line{
 }
 @keyframes heartbeat{
   0%  {transform:scale(1)}
-  10% {transform:scale(1.12)}
-  20% {transform:scale(1)}
-  30% {transform:scale(1.12)}
-  40% {transform:scale(1)}
-  100%{transform:scale(1)}
+  14% {transform:scale(1.15)}
+  28% {transform:scale(1)}
+  42% {transform:scale(1.15)}
+  70% {transform:scale(1)}
 }
 
-/* Preferencias de movimiento reducido */
-@media (prefers-reduced-motion:reduce){
-  .btn, .hero > .wrap, .avatar, .curve-stroke, .top-bar, .hero-heart{
-    animation:none;
-  }
-}
-
-/* Escritorio */
+/* Desktop */
 @media(min-width:760px){
-  .avatar{width:168px;height:168px}
+  .avatar{width:160px;height:160px}
+  .hero-grid{gap:32px;}
 }
