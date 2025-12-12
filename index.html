@@ -2,22 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- "user-scalable=no" evita zoom accidental al tocar botones rápido -->
+  <!-- user-scalable=no evita zoom accidental en botones -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <title>Tarjeta digital — Ximena Marvan Palavicini</title>
   <meta name="description" content="Contacto oficial de Ximena Marvan Palavicini — SEDEMA CDMX." />
   
-  <!-- Open Graph (Vista previa en WhatsApp) -->
+  <!-- Open Graph (Para que se vea bonito en WhatsApp) -->
   <meta property="og:title" content="Ximena Marvan - SEDEMA CDMX" />
   <meta property="og:description" content="Secretaria Particular. Tarjeta de contacto digital." />
+  <!-- IMPORTANTE: Asegúrate de que esta URL apunte a tu foto real en GitHub -->
   <meta property="og:image" content="https://sedemaoficina.github.io/foto.jpg" />
   <meta property="og:type" content="profile" />
 
-  <!-- Privacidad: No indexar en Google -->
+  <!-- Privacidad -->
   <meta name="robots" content="noindex,nofollow" />
 
-  <!-- FUENTE OFICIAL: Roboto (Regular, Medium, Bold, Black) -->
+  <!-- FUENTE OFICIAL: Roboto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -26,15 +27,15 @@
 </head>
 <body>
 
-  <!-- Audio latido (oculto) -->
+  <!-- Archivo de Audio (Debe llamarse latido.mp3) -->
   <audio id="audioLatido" src="latido.mp3" preload="auto"></audio>
 
-  <!-- Barra superior (Compacta) -->
+  <!-- Barra superior (Logo) -->
   <header class="top-bar">
     <img src="logo.png" alt="Gobierno de la Ciudad de México - SEDEMA">
   </header>
 
-  <!-- Hero Section (Compacta) -->
+  <!-- Hero Section (Datos Principales) -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
@@ -43,7 +44,7 @@
             <span class="line">Ximena</span>
             <span class="line">Marvan Palavicini</span>
           </h1>
-          <!-- Cargo con estilo Premium (Espaciado) -->
+          <!-- Cargo grande y legible -->
           <div class="role">Secretaria Particular</div>
           <p class="org">Secretaría del Medio Ambiente de la Ciudad de México</p>
         </div>
@@ -54,7 +55,7 @@
       </div>
     </div>
 
-    <!-- Curva decorativa (Fina y elegante) -->
+    <!-- Curva decorativa fina -->
     <div class="curve" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path class="curve-fill" d="M0,80 C240,140 480,20 720,80 S1200,140 1440,80 L1440,120 L0,120 Z"/>
@@ -63,7 +64,7 @@
     </div>
   </section>
 
-  <!-- Sección de Acciones (Fondo Blanco Puro) -->
+  <!-- Sección de Botones (Fondo Blanco) -->
   <section class="actions-bg">
     <main class="wrap actions">
 
@@ -77,7 +78,7 @@
         WhatsApp
       </a>
 
-      <!-- 2. Enviar Correo -->
+      <!-- 2. Enviar correo -->
       <a class="btn" href="mailto:oficinasecretaria.sedema@gmail.com">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -87,7 +88,7 @@
         Enviar correo
       </a>
 
-      <!-- 3. Guardar Contacto (Botón Principal) -->
+      <!-- 3. Guardar contacto (Botón Destacado) -->
       <a class="btn primary" href="Ximena Marvan Palavicini.vcf" download="Ximena_Marvan_Palavicini.vcf">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -97,7 +98,7 @@
         Guardar contacto
       </a>
       
-      <!-- 4. Compartir Tarjeta -->
+      <!-- 4. Compartir (Solo visible en celular) -->
       <button class="btn" id="shareBtn" type="button" style="display:none;">
         <span class="icon">
            <svg viewBox="0 0 24 24" fill="currentColor">
@@ -118,14 +119,14 @@
       </a>
     </main>
 
-    <!-- Corazón con audio -->
+    <!-- Corazón con Audio -->
     <img src="corazon.png" alt="Toca para escuchar" class="hero-heart" id="heartTrigger" role="button" />
     <p class="tap-hint">Toca el corazón</p>
   </section>
 
-  <!-- Scripts: Compartir y Audio -->
+  <!-- Lógica JavaScript -->
   <script>
-    // 1. Mostrar botón compartir si el navegador lo soporta
+    // Compartir Tarjeta
     const shareBtn = document.getElementById('shareBtn');
     if (navigator.share) {
       shareBtn.style.display = 'flex';
@@ -138,19 +139,19 @@
       });
     }
 
-    // 2. Audio Latido
+    // Audio Latido
     const heart = document.getElementById('heartTrigger');
     const audio = document.getElementById('audioLatido');
     
     heart.addEventListener('click', () => {
-      // Feedback visual
+      // Efecto visual al tocar
       heart.style.transform = "scale(0.85)";
       setTimeout(() => heart.style.transform = "", 150);
       
-      // Reproducir/Pausar
+      // Reproducir sonido
       if(audio.paused) {
         audio.currentTime = 0;
-        audio.play().catch(e => console.log(e));
+        audio.play().catch(e => console.log("Interacción requerida", e));
       } else {
         audio.pause();
       }
