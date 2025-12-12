@@ -2,34 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <title>Tarjeta digital — Ximena Marvan Palavicini</title>
-
-  <!-- Descripción para SEO y redes -->
-  <meta name="description" content="Contacto de Ximena Marvan Palavicini — Secretaria Particular, Secretaría del Medio Ambiente de la Ciudad de México." />
+  <meta name="description" content="Contacto oficial de Ximena Marvan Palavicini — SEDEMA CDMX." />
   
-  <!-- Vista previa en WhatsApp (Open Graph) -->
+  <!-- Open Graph (WhatsApp) -->
   <meta property="og:title" content="Ximena Marvan - SEDEMA CDMX" />
   <meta property="og:description" content="Secretaria Particular. Tarjeta de contacto digital." />
-  <!-- IMPORTANTE: Asegúrate de que esta URL sea la real de tu repositorio/dominio -->
   <meta property="og:image" content="https://sedemaoficina.github.io/foto.jpg" />
   <meta property="og:type" content="profile" />
 
-  <!-- No indexar en Google (Privacidad) -->
   <meta name="robots" content="noindex,nofollow" />
 
-  <!-- Tipografías -->
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Encabezado -->
+
+  <!-- Sonido de latido (oculto) -->
+  <audio id="audioLatido" src="latido.mp3" preload="auto"></audio>
+
+  <!-- Barra superior -->
   <header class="top-bar">
     <img src="logo.png" alt="Secretaría del Medio Ambiente CDMX">
   </header>
 
-  <!-- Hero: Información Principal -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
@@ -43,7 +43,7 @@
         </div>
 
         <figure class="avatar-wrap">
-          <img class="avatar" src="foto.jpg" alt="Foto de Ximena Marvan Palavicini">
+          <img class="avatar" src="foto.jpg" alt="Foto de Ximena Marvan">
         </figure>
       </div>
     </div>
@@ -57,69 +57,107 @@
     </div>
   </section>
 
-  <!-- Acciones y Botones -->
+  <!-- Sección de Botones -->
   <section class="actions-bg">
     <main class="wrap actions">
 
-      <!-- 1. WhatsApp -->
+      <!-- 1. WhatsApp (Icono Sólido y Profesional) -->
       <a class="btn" href="https://wa.me/525536551261" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#9d2148" d="M128 24a88 88 0 0 0-76.3 129.9L40 216l62.7-11.9A88 88 0 1 0 128 24Zm0 160a72 72 0 0 1-36.7-9.9l-2.6-1.6l-37.3 7.1l7.1-37.3l-1.6-2.6A72 72 0 1 1 128 184Zm39.7-41.6c-2.2 6.2-12.5 11.8-17.5 12.1c-4.5.3-10.1.4-26.2-5.4c-22-8-36.1-31-37.2-32.4c-1-1.4-8.9-11.9-8.9-22.7s5.5-16.1 7.4-18.3c2.2-2.4 4.8-3 6.4-3s3.2.1 4.5.1c1.4 0 3.4-.8 5.3 4.1c2 5 6.9 17.1 7.5 18.3c.6 1.2 1 2.6.2 4c-.8 1.4-1.2 2.6-2.4 4c-1.2 1.4-2.6 3-3.7 4c-1.2 1-2.4 2.2-1 4.6c1.4 2.4 6.3 10.4 13.6 16.9c9.4 8.4 17.4 11 19.8 12.2c2.4 1.2 3.8 1 5.2-.2c1.4-1.2 6-7 7.6-9.4c1.6-2.4 3.2-2 5.3-1.2c2.2.8 13.9 6.6 16.3 7.8c2.4 1.2 4 1.8 4.6 2.8c.7 1 0 6.1-2.2 12.3Z"/></svg>
+        <span class="icon">
+          <!-- Path corregido: Icono relleno y fuerte -->
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.16C10.57 20.16 9.12 19.77 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L4.97 16.15C4.12 14.79 3.68 13.31 3.68 11.91C3.68 7.31 7.43 3.56 12.05 3.56C14.28 3.56 16.37 4.43 17.95 6.01C19.53 7.59 20.4 9.68 20.4 11.91C20.4 16.51 16.65 20.16 12.05 20.16ZM16.61 14.99C16.36 14.86 15.14 14.26 14.91 14.18C14.69 14.1 14.53 14.05 14.37 14.29C14.21 14.53 13.75 15.07 13.61 15.23C13.47 15.39 13.33 15.41 13.08 15.29C12.83 15.16 12.03 14.9 11.08 14.05C10.34 13.39 9.84 12.57 9.59 12.14C9.34 11.72 9.56 11.49 9.69 11.36C9.8 11.25 9.94 11.07 10.06 10.93C10.19 10.79 10.23 10.69 10.31 10.52C10.4 10.36 10.36 10.22 10.3 10.09C10.23 9.97 9.77 8.83 9.58 8.38C9.39 7.93 9.2 7.99 9.05 7.99C8.91 7.99 8.75 7.99 8.59 7.99C8.43 7.99 8.16 8.05 7.93 8.3C7.7 8.55 7.06 9.15 7.06 10.37C7.06 11.59 7.95 12.77 8.08 12.94C8.21 13.11 9.83 15.61 12.3 16.68C12.89 16.93 13.35 17.08 13.71 17.2C14.28 17.38 14.81 17.36 15.23 17.29C15.7 17.22 16.68 16.7 16.89 16.12C17.09 15.54 17.09 15.04 17.03 14.94C16.97 14.84 16.83 14.78 16.61 14.99Z"/>
+          </svg>
         </span>
         WhatsApp
       </a>
 
-      <!-- 2. Correo Electrónico (Nuevo, info de tarjeta física) -->
+      <!-- 2. Correo (Icono Sólido) -->
       <a class="btn" href="mailto:oficinasecretaria.sedema@gmail.com">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#9d2148" d="M224 48H32a8 8 0 0 0-8 8v136a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8Zm-8 136H40V65.6l84.4 56.3a8 8 0 0 0 8.8 0L216 65.6V184Z"/></svg>
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+          </svg>
         </span>
         Enviar correo
       </a>
 
-      <!-- 3. Guardar Contacto -->
+      <!-- 3. Guardar Contacto (Icono Personaje Sólido) -->
       <a class="btn" href="Ximena Marvan Palavicini.vcf" download="Ximena_Marvan_Palavicini.vcf">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#9d2148" d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 160H40V56h176v144ZM88 168h48a24 24 0 0 0-48 0Zm24-32a24 24 0 1 0-24-24a24 24 0 0 0 24 24Zm64-40h32v16h-32Zm0 32h40v16h-40Z"/></svg>
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15 12C17.21 12 19 10.21 19 8C19 5.79 17.21 4 15 4C12.79 4 11 5.79 11 8C11 10.21 12.79 12 15 12ZM6 10V7H4V10H1V12H4V15H6V12H9V10H6ZM15 14C12.33 14 7 15.34 7 18V20H23V18C23 15.34 17.67 14 15 14Z"/>
+          </svg>
         </span>
         Guardar contacto
       </a>
       
-      <!-- 4. Botón Inteligente: Compartir (Solo móvil) -->
+      <!-- 4. Compartir (Icono Nodo Sólido) -->
       <button class="btn" id="shareBtn" type="button" style="display:none;">
-        <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#9d2148" d="M184 192a32 32 0 0 0-25.3 12.6l-73.4-44a32.2 32.2 0 0 0 0-65.2l73.4-44A32 32 0 1 0 152 32a31.8 31.8 0 0 0 2.7 12.9l-73.4 44a32 32 0 1 0 0 82.2l73.4 44A31.8 31.8 0 0 0 152 224a32 32 0 1 0 32-32Z"/></svg>
+        <span class="icon">
+           <svg viewBox="0 0 24 24" fill="currentColor">
+             <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.85L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.34C15.11 18.55 15.08 18.77 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"/>
+           </svg>
         </span>
         Compartir tarjeta
       </button>
 
-      <!-- 5. Página Institucional -->
+      <!-- 5. Página Institucional (Icono Link Sólido) -->
       <a class="btn" href="https://sedema.cdmx.gob.mx/" target="_blank" rel="noopener">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="#9d2148" d="M152 32h72v72h-24V78.6L121.9 156l-22.6-22.6L177.4 56H152V32ZM40 64h80v16H56v96h96v-40h16v56H40V64Z"/></svg>
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 19H5V5H12V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V12H19V19ZM14 3V5H17.59L7.76 14.83L9.17 16.24L19 6.41V10H21V3H14Z"/>
+          </svg>
         </span>
         Página institucional
       </a>
     </main>
 
-    <!-- Corazón CDMX -->
-    <img src="corazon.png" alt="Corazón Ciudad de México" class="hero-heart" />
+    <!-- Corazón CDMX (Botón de Audio) -->
+    <!-- Agregamos role="button" para accesibilidad -->
+    <img src="corazon.png" 
+         alt="Toca para escuchar un latido" 
+         class="hero-heart" 
+         id="heartTrigger"
+         role="button" />
+    
+    <p class="tap-hint">Toca el corazón</p>
   </section>
 
-  <!-- Script para el botón compartir -->
+  <!-- Funcionalidades JavaScript -->
   <script>
+    // 1. Lógica del Botón Compartir
     const shareBtn = document.getElementById('shareBtn');
-    // Si el navegador soporta 'compartir' nativo (celulares)
     if (navigator.share) {
-      shareBtn.style.display = 'flex'; // Mostrar botón
+      shareBtn.style.display = 'flex';
       shareBtn.addEventListener('click', () => {
         navigator.share({
           title: 'Ximena Marvan - SEDEMA',
-          text: 'Contacto de Ximena Marvan Palavicini, Secretaria Particular - SEDEMA CDMX',
+          text: 'Contacto oficial, Secretaría del Medio Ambiente CDMX.',
           url: window.location.href
         }).catch(console.error);
       });
     }
+
+    // 2. Lógica del Audio (Corazón)
+    const heart = document.getElementById('heartTrigger');
+    const audio = document.getElementById('audioLatido');
+    
+    heart.addEventListener('click', () => {
+      // Efecto visual instantáneo
+      heart.style.transform = "scale(0.85)";
+      setTimeout(() => heart.style.transform = "", 150);
+
+      // Reproducir audio
+      if(audio.paused) {
+        audio.currentTime = 0;
+        audio.play().catch(e => console.log("Interacción requerida para audio"));
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play();
+      }
+    });
   </script>
 </body>
 </html>
