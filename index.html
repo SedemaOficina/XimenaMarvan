@@ -2,37 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- "user-scalable=no" evita zoom accidental al tocar botones rápido -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <title>Tarjeta digital — Ximena Marvan Palavicini</title>
   <meta name="description" content="Contacto oficial de Ximena Marvan Palavicini — SEDEMA CDMX." />
   
-  <!-- Open Graph -->
+  <!-- Open Graph (Vista previa en WhatsApp) -->
   <meta property="og:title" content="Ximena Marvan - SEDEMA CDMX" />
   <meta property="og:description" content="Secretaria Particular. Tarjeta de contacto digital." />
   <meta property="og:image" content="https://sedemaoficina.github.io/foto.jpg" />
   <meta property="og:type" content="profile" />
 
+  <!-- Privacidad: No indexar en Google -->
   <meta name="robots" content="noindex,nofollow" />
 
-  <!-- FUENTE OFICIAL: Solo Roboto (Pesos: 400, 500, 700, 900) -->
+  <!-- FUENTE OFICIAL: Roboto (Regular, Medium, Bold, Black) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Audio latido -->
+  <!-- Audio latido (oculto) -->
   <audio id="audioLatido" src="latido.mp3" preload="auto"></audio>
 
-  <!-- Barra superior (Logo) -->
+  <!-- Barra superior (Compacta) -->
   <header class="top-bar">
     <img src="logo.png" alt="Gobierno de la Ciudad de México - SEDEMA">
   </header>
 
-  <!-- Hero Section (Identidad Principal) -->
+  <!-- Hero Section (Compacta) -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-grid">
@@ -41,6 +43,7 @@
             <span class="line">Ximena</span>
             <span class="line">Marvan Palavicini</span>
           </h1>
+          <!-- Cargo con estilo Premium (Espaciado) -->
           <div class="role">Secretaria Particular</div>
           <p class="org">Secretaría del Medio Ambiente de la Ciudad de México</p>
         </div>
@@ -51,21 +54,20 @@
       </div>
     </div>
 
-    <!-- Curva decorativa institucional -->
+    <!-- Curva decorativa (Fina y elegante) -->
     <div class="curve" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <!-- El relleno ahora será blanco puro para conectar con la siguiente sección -->
         <path class="curve-fill" d="M0,80 C240,140 480,20 720,80 S1200,140 1440,80 L1440,120 L0,120 Z"/>
         <path class="curve-stroke" d="M0,80 C240,140 480,20 720,80 S1200,140 1440,80"/>
       </svg>
     </div>
   </section>
 
-  <!-- Sección de Acciones (Fondo Limpio) -->
+  <!-- Sección de Acciones (Fondo Blanco Puro) -->
   <section class="actions-bg">
     <main class="wrap actions">
 
-      <!-- Botón 1: WhatsApp -->
+      <!-- 1. WhatsApp -->
       <a class="btn" href="https://wa.me/525536551261" target="_blank" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -75,7 +77,7 @@
         WhatsApp
       </a>
 
-      <!-- Botón 2: Correo -->
+      <!-- 2. Enviar Correo -->
       <a class="btn" href="mailto:oficinasecretaria.sedema@gmail.com">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -85,7 +87,7 @@
         Enviar correo
       </a>
 
-      <!-- Botón 3: Guardar Contacto (Destacado) -->
+      <!-- 3. Guardar Contacto (Botón Principal) -->
       <a class="btn primary" href="Ximena Marvan Palavicini.vcf" download="Ximena_Marvan_Palavicini.vcf">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -95,7 +97,7 @@
         Guardar contacto
       </a>
       
-      <!-- Botón 4: Compartir (Solo celular) -->
+      <!-- 4. Compartir Tarjeta -->
       <button class="btn" id="shareBtn" type="button" style="display:none;">
         <span class="icon">
            <svg viewBox="0 0 24 24" fill="currentColor">
@@ -105,7 +107,7 @@
         Compartir tarjeta
       </button>
 
-      <!-- Botón 5: Institucional -->
+      <!-- 5. Página Institucional -->
       <a class="btn" href="https://sedema.cdmx.gob.mx/" target="_blank" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -121,7 +123,9 @@
     <p class="tap-hint">Toca el corazón</p>
   </section>
 
+  <!-- Scripts: Compartir y Audio -->
   <script>
+    // 1. Mostrar botón compartir si el navegador lo soporta
     const shareBtn = document.getElementById('shareBtn');
     if (navigator.share) {
       shareBtn.style.display = 'flex';
@@ -134,14 +138,19 @@
       });
     }
 
+    // 2. Audio Latido
     const heart = document.getElementById('heartTrigger');
     const audio = document.getElementById('audioLatido');
+    
     heart.addEventListener('click', () => {
+      // Feedback visual
       heart.style.transform = "scale(0.85)";
       setTimeout(() => heart.style.transform = "", 150);
+      
+      // Reproducir/Pausar
       if(audio.paused) {
         audio.currentTime = 0;
-        audio.play().catch(e=>console.log(e));
+        audio.play().catch(e => console.log(e));
       } else {
         audio.pause();
       }
