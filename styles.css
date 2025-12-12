@@ -270,3 +270,75 @@ h1 .line {
   .hero-grid { gap: 40px; }
   .actions-grid { padding-left: 0; padding-right: 0; }
 }
+
+/* =========================================
+   BLOQUEO DE SEGURIDAD (DESKTOP)
+   ========================================= */
+
+/* 1. Por defecto (en Celular) el bloqueo está oculto */
+#desktop-lock {
+  display: none;
+}
+
+/* 2. Regla para Laptops y Computadoras (Pantallas anchas) */
+@media (min-width: 1024px) {
+  
+  /* Ocultamos el scroll para que no puedan bajar */
+  body {
+    overflow: hidden;
+  }
+
+  /* Activamos el bloqueo */
+  #desktop-lock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Posición fija cubriendo TODA la pantalla */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blanco); /* Fondo blanco puro */
+    z-index: 9999; /* Por encima de todo */
+  }
+
+  .lock-content {
+    max-width: 400px;
+    padding: 40px;
+    border: 2px solid var(--guinda);
+    border-radius: 20px;
+  }
+
+  .lock-content img {
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .lock-content h2 {
+    color: var(--guinda);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .lock-content p {
+    color: var(--gris);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .lock-content .small {
+    font-size: 14px;
+    color: #888;
+    margin-top: 20px;
+  }
+
+  /* TRUCO FINAL: Ocultar todo el resto de la página */
+  .top-bar, .hero, .actions-bg {
+    display: none !important;
+  }
+}
