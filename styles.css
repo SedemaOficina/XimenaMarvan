@@ -1,11 +1,11 @@
-/* PALETA OFICIAL GOB CDMX & AJUSTES WEB */
+/* PALETA OFICIAL GOB CDMX */
 :root {
-  --guinda: #9d2148;  /* Color Institucional */
-  --dorado: #b28e5c;  /* Dorado Borde */
-  --dorado-light: #e6cfa3; /* Dorado Claro (Texto sobre fondo rojo) */
-  --gris:   #55585a;  /* Texto gris oscuro */
-  --marfil: #fffae9;  /* Fondo para hover */
-  --blanco: #ffffff;  /* Blanco puro */
+  --guinda: #9d2148;
+  --dorado: #b28e5c;
+  --dorado-light: #e6cfa3;
+  --gris:   #55585a;
+  --marfil: #fffae9;
+  --blanco: #ffffff;
   --curve-speed: 2.8s;
 }
 
@@ -17,7 +17,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: var(--gris);
   background: var(--blanco);
-  overscroll-behavior-y: none; /* Evita rebote elástico en iPhone */
+  overscroll-behavior-y: none;
 }
 
 .wrap {
@@ -26,10 +26,10 @@ body {
   padding: 0 24px;
 }
 
-/* 1. HEADER COMPACTO (Para ganar espacio) */
+/* 1. HEADER */
 .top-bar {
   background: var(--blanco);
-  height: 60px; /* Altura reducida */
+  height: 70px; /* Un poco más alto para que el logo se vea bien */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,63 +39,72 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .top-bar img {
-  height: 42px; 
+  height: 50px; /* Logo más grande */
   width: auto;
 }
 
-/* 2. HERO SECTION */
+/* 2. HERO SECTION (Lo Rojo) */
 .hero {
   color: var(--blanco);
   position: relative;
   background: url('patron_rojo.jpg') center/cover no-repeat;
   overflow: hidden;
+  /* Centrado vertical del contenido dentro del rojo */
+  display: flex;
+  flex-direction: column;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(157, 33, 72, 0.85); /* Capa guinda para legibilidad */
+  background: rgba(157, 33, 72, 0.85);
 }
-.hero > .wrap {
+
+/* El contenido (Texto + Foto) */
+.hero-content {
   position: relative;
-  /* Padding ajustado para balance */
-  padding: 18px 24px 10px; 
+  /* Aumenté el padding superior para bajar visualmente todo el bloque al centro */
+  padding-top: 35px; 
+  padding-bottom: 25px; 
+  /* Esto asegura que esté centrado visualmente respecto a la curva */
   animation: heroIn .7s ease-out .1s both;
+  width: 100%;
 }
 
 .hero-grid {
   display: grid;
+  /* Columna texto flexible, Columna foto automática */
   grid-template-columns: 1fr auto; 
   gap: 15px; 
   align-items: center;
 }
 
-/* --- TIPOGRAFÍA AUMENTADA --- */
+/* --- TIPOGRAFÍA DE ALTO IMPACTO (GRANDE) --- */
 
-/* Nombre GRANDE */
+/* Nombre */
 h1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900; /* Extra Bold */
-  margin: 0 0 4px;
+  font-weight: 900; /* Black */
+  margin: 0 0 5px;
   line-height: 1.0; 
   letter-spacing: -0.5px;
 }
 h1 .line {
   display: block;
   white-space: nowrap;
-  /* Tamaño dinámico: Mínimo 32px en cel, hasta 54px en PC */
-  font-size: clamp(40px, 8.5vw, 54px); 
+  /* Tamaño base 38px, crece hasta 56px. Muy legible. */
+  font-size: clamp(38px, 9.5vw, 56px); 
 }
 
-/* Cargo GRANDE y Legible */
+/* Cargo */
 .role {
-  color: var(--dorado-light); /* Dorado claro para contraste */
+  color: var(--dorado-light);
   font-weight: 700;
   margin: 8px 0 6px;
-  /* Tamaño aumentado para competir con los iconos */
-  font-size: 30px; 
+  /* Tamaño aumentado significativamente */
+  font-size: 19px; 
   text-transform: uppercase;
-  letter-spacing: 1.2px; 
+  letter-spacing: 0.8px; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
@@ -103,31 +112,33 @@ h1 .line {
 .org {
   margin: 2px 0 0;
   opacity: 1;
-  font-size: 21px; 
-  line-height: 1.35;
+  /* Aumentado a 15px para que se lea sin esfuerzo */
+  font-size: 15px; 
+  line-height: 1.3;
   font-weight: 400;
 }
 
-/* FOTO (Equilibrada) */
+/* FOTO (Aumentada un 25%) */
 .avatar {
-  width: 105px;
-  height: 105px;
+  /* De 105px pasamos a 130px */
+  width: 130px; 
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top center;
-  border: 3px solid var(--blanco);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 4px solid var(--blanco); /* Borde un poco más grueso por el tamaño */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
   background: #ddd;
 }
 
-/* 3. CURVA FINA */
+/* 3. CURVA */
 .curve { position: relative; z-index: 1; margin-top: -1px; }
 .curve svg { display: block; width: 100%; height: auto; }
 .curve-fill { fill: var(--blanco); }
 .curve-stroke {
   fill: none;
   stroke: var(--dorado);
-  stroke-width: 6; /* Fino y elegante */
+  stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -135,63 +146,61 @@ h1 .line {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
 }
 
-/* 4. CONTENEDOR DE BOTONES (Fondo Blanco) */
+/* 4. BOTONES */
 .actions-bg {
   background-color: var(--blanco);
-  padding: 20px 0 40px;
+  padding: 25px 0 40px;
 }
 
-/* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
   .actions-bg {
-    /* Altura dinámica para evitar saltos */
-    min-height: calc(100dvh - 60px); 
+    min-height: calc(100dvh - 70px); 
   }
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 400px;
+  gap: 16px; /* Más separación entre botones grandes */
+  max-width: 450px; /* Un poco más ancho */
   margin: 0 auto;
 }
 
-/* 5. BOTONES LIMPIOS (Blanco Puro) */
+/* ESTILO DE BOTÓN GRANDE */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   font-family: inherit;
-  font-size: 16px;
+  
+  /* Fuente aumentada a 18px */
+  font-size: 18px; 
   cursor: pointer;
   width: 100%;
   font-weight: 500;
   
   border-radius: 12px;
-  padding: 13px 20px;
   
-  /* Borde fino */
+  /* Botones más altos (Padding aumentado) */
+  padding: 16px 20px; 
+  
   border: 1.5px solid var(--guinda);
-  
-  /* Fondo blanco puro */
   background: var(--blanco); 
   color: var(--guinda);
   
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   animation: btnIn .5s ease both;
 }
 
-/* Hover: Fondo Marfil */
 .btn:hover {
   background-color: var(--marfil);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(157, 33, 72, 0.12);
+  box-shadow: 0 4px 10px rgba(157, 33, 72, 0.15);
 }
 
 .btn:active { transform: scale(0.98); }
@@ -201,8 +210,8 @@ h1 .line {
   background-color: var(--guinda);
   color: var(--blanco);
   border: 1.5px solid var(--guinda);
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(157, 33, 72, 0.3);
+  font-weight: 700; /* Bold */
+  box-shadow: 0 4px 12px rgba(157, 33, 72, 0.35);
 }
 .btn.primary:hover {
   background-color: #851b3d;
@@ -210,35 +219,34 @@ h1 .line {
 }
 .btn.primary .icon svg { color: var(--blanco); }
 
-/* Iconos */
-.icon svg { width: 22px; height: 22px; display: block; flex-shrink: 0; }
+/* Iconos ajustados al nuevo tamaño de texto */
+.icon svg { width: 24px; height: 24px; display: block; flex-shrink: 0; }
 
-/* Cascada de animación */
+/* Cascada */
 .actions .btn:nth-child(1) { animation-delay: .1s; }
 .actions .btn:nth-child(2) { animation-delay: .15s; }
 .actions .btn:nth-child(3) { animation-delay: .20s; }
 .actions .btn:nth-child(4) { animation-delay: .25s; }
 .actions .btn:nth-child(5) { animation-delay: .30s; }
 
-/* 6. CORAZÓN */
+/* 5. CORAZÓN */
 .hero-heart {
   display: block;
-  margin: 25px auto 5px;
-  width: clamp(90px, 18vw, 130px);
+  margin: 30px auto 5px;
+  width: clamp(100px, 20vw, 150px); /* Corazón también un poco más grande */
   height: auto;
   animation: heartbeat 2s ease-in-out infinite;
   cursor: pointer;
 }
 .tap-hint {
   text-align: center;
-  font-size: 10px;
+  font-size: 11px;
   color: #aaa;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Keyframes */
 @keyframes heroIn { from {opacity:0; transform:translateY(15px)} to {opacity:1; transform:none} }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes btnIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:none} }
@@ -251,6 +259,6 @@ h1 .line {
 }
 
 @media(min-width: 760px) {
-  .avatar { width: 150px; height: 150px; }
-  .hero-grid { gap: 32px; }
+  .avatar { width: 180px; height: 180px; }
+  .hero-grid { gap: 40px; }
 }
