@@ -2,20 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <!-- user-scalable=no evita zoom accidental en botones -->
+  <!-- user-scalable=no evita zoom accidental -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <title>Tarjeta digital — Ximena Marvan Palavicini</title>
   <meta name="description" content="Contacto oficial de Ximena Marvan Palavicini — SEDEMA CDMX." />
   
-  <!-- Open Graph (Para que se vea bonito en WhatsApp) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Ximena Marvan - SEDEMA CDMX" />
   <meta property="og:description" content="Secretaria Particular. Tarjeta de contacto digital." />
-  <!-- IMPORTANTE: Asegúrate de que esta URL apunte a tu foto real en GitHub -->
   <meta property="og:image" content="https://sedemaoficina.github.io/foto.jpg" />
   <meta property="og:type" content="profile" />
 
-  <!-- Privacidad -->
   <meta name="robots" content="noindex,nofollow" />
 
   <!-- FUENTE OFICIAL: Roboto -->
@@ -27,24 +25,23 @@
 </head>
 <body>
 
-  <!-- Archivo de Audio (Debe llamarse latido.mp3) -->
+  <!-- Audio -->
   <audio id="audioLatido" src="latido.mp3" preload="auto"></audio>
 
-  <!-- Barra superior (Logo) -->
+  <!-- Barra superior -->
   <header class="top-bar">
     <img src="logo.png" alt="Gobierno de la Ciudad de México - SEDEMA">
   </header>
 
-  <!-- Hero Section (Datos Principales) -->
+  <!-- Hero Section (Rojo) -->
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-content">
       <div class="hero-grid">
         <div class="hero-titles">
           <h1>
             <span class="line">Ximena</span>
             <span class="line">Marvan Palavicini</span>
           </h1>
-          <!-- Cargo grande y legible -->
           <div class="role">Secretaria Particular</div>
           <p class="org">Secretaría del Medio Ambiente de la Ciudad de México</p>
         </div>
@@ -55,7 +52,7 @@
       </div>
     </div>
 
-    <!-- Curva decorativa fina -->
+    <!-- Curva decorativa -->
     <div class="curve" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path class="curve-fill" d="M0,80 C240,140 480,20 720,80 S1200,140 1440,80 L1440,120 L0,120 Z"/>
@@ -64,7 +61,7 @@
     </div>
   </section>
 
-  <!-- Sección de Botones (Fondo Blanco) -->
+  <!-- Sección de Botones -->
   <section class="actions-bg">
     <main class="wrap actions">
 
@@ -88,7 +85,7 @@
         Enviar correo
       </a>
 
-      <!-- 3. Guardar contacto (Botón Destacado) -->
+      <!-- 3. Guardar contacto (Destacado) -->
       <a class="btn primary" href="Ximena Marvan Palavicini.vcf" download="Ximena_Marvan_Palavicini.vcf">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -98,7 +95,7 @@
         Guardar contacto
       </a>
       
-      <!-- 4. Compartir (Solo visible en celular) -->
+      <!-- 4. Compartir -->
       <button class="btn" id="shareBtn" type="button" style="display:none;">
         <span class="icon">
            <svg viewBox="0 0 24 24" fill="currentColor">
@@ -108,7 +105,7 @@
         Compartir tarjeta
       </button>
 
-      <!-- 5. Página Institucional -->
+      <!-- 5. Institucional -->
       <a class="btn" href="https://sedema.cdmx.gob.mx/" target="_blank" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -119,14 +116,12 @@
       </a>
     </main>
 
-    <!-- Corazón con Audio -->
+    <!-- Corazón -->
     <img src="corazon.png" alt="Toca para escuchar" class="hero-heart" id="heartTrigger" role="button" />
     <p class="tap-hint">Toca el corazón</p>
   </section>
 
-  <!-- Lógica JavaScript -->
   <script>
-    // Compartir Tarjeta
     const shareBtn = document.getElementById('shareBtn');
     if (navigator.share) {
       shareBtn.style.display = 'flex';
@@ -139,19 +134,14 @@
       });
     }
 
-    // Audio Latido
     const heart = document.getElementById('heartTrigger');
     const audio = document.getElementById('audioLatido');
-    
     heart.addEventListener('click', () => {
-      // Efecto visual al tocar
       heart.style.transform = "scale(0.85)";
       setTimeout(() => heart.style.transform = "", 150);
-      
-      // Reproducir sonido
       if(audio.paused) {
         audio.currentTime = 0;
-        audio.play().catch(e => console.log("Interacción requerida", e));
+        audio.play().catch(e => console.log(e));
       } else {
         audio.pause();
       }
