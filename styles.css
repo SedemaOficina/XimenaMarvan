@@ -1,261 +1,254 @@
-/* PALETA OFICIAL GOB CDMX 2024-2030 */
-:root{
-  --guinda: #9d2148;  /* Pantone 7420 C */
-  --dorado: #b28e5c;  /* Pantone 465 C */
-  --gris:   #55585a;  /* Pantone 425 C (Texto) */
-  --marfil: #fffae9;  /* Pantone P7-1 C (Fondos claros) */
-  --blanco: #ffffff;
+/* PALETA OFICIAL GOB CDMX & Ajustes Web */
+:root {
+  --guinda: #9d2148;  /* Institucional */
+  --dorado: #b28e5c;  /* Institucional estándar */
+  --dorado-light: #e6cfa3; /* Ajuste: Dorado claro para texto sobre rojo */
+  --gris:   #55585a;  /* Texto institucional */
+  --marfil: #fffae9;  /* Fondos claros */
+  --blanco: #ffffff;  /* Blanco puro */
   --curve-speed: 2.8s;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
-body{
-  margin:0;
-  /* SOLO ROBOTO, como indica el manual */
-  font-family: 'Roboto', sans-serif; 
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
   color: var(--gris);
   background: var(--blanco);
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: none; /* Evita rebote elástico en iOS */
 }
 
-.wrap{
-  max-width:720px;
-  margin:0 auto;
-  padding:0 24px; /* Un poco más de margen para elegancia */
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* 1. Header Limpio */
-.top-bar{
+/* 1. HEADER OPTIMIZADO (Más delgado) */
+.top-bar {
   background: var(--blanco);
-  height:90px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  /* Línea dorada sutil */
-  border-bottom: 2px solid var(--dorado); 
+  height: 65px; /* Reducido de 90px para ganar espacio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--dorado);
   position: relative;
   z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-.top-bar img{
-  height:75px; 
-  width:auto;
+.top-bar img {
+  height: 48px; /* Ajuste proporcional */
+  width: auto;
 }
 
-/* 2. Hero Section */
-.hero{
+/* 2. HERO SECTION (Compacto) */
+.hero {
   color: var(--blanco);
-  position:relative;
-  /* El patrón rojo se mantiene porque es identidad fuerte, pero se puede limpiar si quieres */
-  background:url('patron_rojo.jpg') center/cover no-repeat;
-  overflow:hidden;
+  position: relative;
+  background: url('patron_rojo.jpg') center/cover no-repeat;
+  overflow: hidden;
 }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  /* Ajuste para que el texto resalte más sobre el patrón */
-  background: rgba(157, 33, 72, 0.85); 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(157, 33, 72, 0.85); /* Tinte guinda para legibilidad */
 }
-.hero > .wrap{
-  position:relative;
-  padding: 30px 24px 15px;
+
+/* Ajuste CLAVE para el "Fold": Reducir márgenes */
+.hero > .wrap {
+  position: relative;
+  /* Arriba 15px, Abajo 10px. Mucho más pegado. */
+  padding: 15px 24px 10px; 
   animation: heroIn .7s ease-out .1s both;
 }
 
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:24px;
-  align-items:center;
+.hero-grid {
+  display: grid;
+  /* Más espacio para el texto, menos para la foto */
+  grid-template-columns: 1fr auto; 
+  gap: 12px;
+  align-items: center;
 }
 
-/* Tipografía Roboto Bold/Black */
-h1{
+/* TIPOGRAFÍA & JERARQUÍA */
+h1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900; /* Black, como en los títulos del manual */
-  margin:0 0 6px;
-  line-height: 1.1;
+  font-weight: 900; /* Black */
+  margin: 0 0 2px;
+  line-height: 1.0; /* Bloque sólido */
   letter-spacing: -0.5px;
 }
-h1 .line{
-  display:block;
-  white-space:nowrap;
-  font-size:clamp(26px, 7vw, 52px);
+h1 .line {
+  display: block;
+  white-space: nowrap;
+  font-size: clamp(26px, 7vw, 50px);
 }
 
-.role{
-  color: var(--dorado);
-  font-weight: 700; /* Bold */
-  margin: 6px 0 6px;
-  font-size:clamp(15px, 4vw, 20px);
+/* CARGO "PREMIUM" (Dorado claro + Sombra + Espaciado) */
+.role {
+  color: var(--dorado-light); /* Dorado claro para contraste */
+  font-weight: 700;
+  margin: 6px 0 4px;
+  font-size: 13px; /* Pequeño y elegante */
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.org{
-  margin:0;
-  opacity: 0.95;
-  font-size:clamp(13px, 3.2vw, 16px);
-  line-height: 1.35;
-  font-weight: 400; /* Regular */
+  letter-spacing: 2.5px; /* Muy separado */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para resaltar */
 }
 
-/* FOTO DE PERFIL (Ajuste top center) */
-.avatar{
-  width:125px;
-  height:125px;
-  border-radius:50%;
+.org {
+  margin: 2px 0 0;
+  opacity: 0.95;
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+/* FOTO (Ajustada y centrada) */
+.avatar {
+  width: 100px; /* Reducida para ganar espacio vertical */
+  height: 100px;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: top center; 
-  border: 4px solid var(--blanco);
-  /* Sombra suave en lugar de outline duro */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  animation: avatarPop .6s ease-out .2s both;
+  object-position: top center; /* Enfoca la cara */
+  border: 3px solid var(--blanco);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: #ddd;
 }
 
-/* 3. Curva */
-.curve{position:relative;z-index:1; margin-top:-1px;}
-.curve svg{display:block;width:100%;height:auto}
-.curve-fill{fill: var(--blanco);} /* Conecta con el fondo blanco de abajo */
-.curve-stroke{
-  fill:none;
+/* 3. CURVA FINA (Estilo Pluma) */
+.curve { position: relative; z-index: 1; margin-top: -1px; }
+.curve svg { display: block; width: 100%; height: auto; }
+.curve-fill { fill: var(--blanco); }
+.curve-stroke {
+  fill: none;
   stroke: var(--dorado);
-  stroke-width:12;
-  stroke-linecap:round;
-  stroke-dasharray:1000;
-  stroke-dashoffset:1000;
+  stroke-width: 6; /* Fino (era 12) */
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
   animation: draw var(--curve-speed) ease-out .2s forwards;
-  /* Sombra sutil a la línea */
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
 }
 
-/* 4. Fondo blanco limpio (SIN patrón blanco) */
-.actions-bg{
+/* 4. CONTENEDOR DE BOTONES (Fondo Blanco) */
+.actions-bg {
   background-color: var(--blanco);
-  /* Opcional: Si quieres un toque muy sutil de Marfil al fondo total:
-     background-color: var(--blanco); background: linear-gradient(to bottom, #fff 0%, var(--marfil) 100%); 
-  */
-  padding: 30px 0 50px;
+  padding: 20px 0 40px;
 }
 
-@media (max-width: 768px){
-  .actions-bg{
-    min-height: calc(100dvh - 90px);
+/* Ajuste móvil para evitar saltos (dvh) */
+@media (max-width: 768px) {
+  .actions-bg {
+    min-height: calc(100dvh - 65px); /* Restamos el header de 65px */
   }
-  .avatar{ width: 105px; height: 105px; }
 }
 
-.actions{
-  display:flex;
-  flex-direction:column;
-  gap:16px; 
-  max-width:400px; 
-  margin:0 auto;
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-/* 5. Estilo de Botones Oficiales */
-.btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  text-decoration:none;
+/* 5. BOTONES "LIMPIOS" (Blanco Puro) */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
   font-family: inherit;
   font-size: 16px;
   cursor: pointer;
   width: 100%;
-  font-weight: 500; /* Medium weight */
+  font-weight: 500;
   
-  /* Forma: Bordes redondeados pero no píldora completa, más institucional */
-  border-radius: 12px; 
-  padding: 14px 20px;
+  border-radius: 12px;
+  padding: 13px 20px;
   
-  /* Borde Guinda oficial */
-  border: 2px solid var(--guinda);
+  /* Borde Fino (1.5px) */
+  border: 1.5px solid var(--guinda);
+  
+  /* FONDO BLANCO PURO (Corrección de amarillo) */
   background: var(--blanco);
   color: var(--guinda);
   
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   animation: btnIn .5s ease both;
 }
 
-/* Hover: Usamos el MARFIL del manual */
-.btn:hover{
+/* Hover: Aquí sí aparece el Marfil */
+.btn:hover {
   background-color: var(--marfil);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(157, 33, 72, 0.12);
 }
 
-.btn:active{
-  transform: scale(0.98);
-}
+.btn:active { transform: scale(0.98); }
 
-/* Botón Primary (Destacado) */
-.btn.primary{
+/* BOTÓN DESTACADO (Sólido) */
+.btn.primary {
   background-color: var(--guinda);
   color: var(--blanco);
-  border: 2px solid var(--guinda);
+  border: 1.5px solid var(--guinda);
   font-weight: 700;
-  box-shadow: 0 4px 10px rgba(157, 33, 72, 0.25);
+  box-shadow: 0 4px 10px rgba(157, 33, 72, 0.3);
 }
-.btn.primary:hover{
-  background-color: #851b3d; /* Un guinda un poco más oscuro */
+.btn.primary:hover {
+  background-color: #851b3d; /* Guinda oscuro */
   border-color: #851b3d;
 }
-.btn.primary .icon svg{
-  color: var(--blanco); /* Icono blanco */
-}
+/* Icono blanco en el botón destacado */
+.btn.primary .icon svg { color: var(--blanco); }
 
 /* Iconos */
-.icon svg{
-  width: 24px;
-  height: 24px;
+.icon svg { width: 22px; height: 22px; display: block; flex-shrink: 0; }
+
+/* Cascada de animación */
+.actions .btn:nth-child(1) { animation-delay: .1s; }
+.actions .btn:nth-child(2) { animation-delay: .15s; }
+.actions .btn:nth-child(3) { animation-delay: .20s; }
+.actions .btn:nth-child(4) { animation-delay: .25s; }
+.actions .btn:nth-child(5) { animation-delay: .30s; }
+
+/* 6. CORAZÓN */
+.hero-heart {
   display: block;
-}
-
-/* Cascada */
-.actions .btn:nth-child(1){animation-delay:.1s}
-.actions .btn:nth-child(2){animation-delay:.15s}
-.actions .btn:nth-child(3){animation-delay:.20s}
-.actions .btn:nth-child(4){animation-delay:.25s}
-.actions .btn:nth-child(5){animation-delay:.30s}
-
-/* 6. Corazón */
-.hero-heart{
-  display:block;
-  margin: 30px auto 5px;
-  width:clamp(100px, 18vw, 140px);
-  height:auto;
+  margin: 25px auto 5px;
+  width: clamp(90px, 18vw, 130px);
+  height: auto;
   animation: heartbeat 2s ease-in-out infinite;
   cursor: pointer;
 }
-.tap-hint{
+.tap-hint {
   text-align: center;
-  font-size: 11px;
-  color: #999; /* Gris muy suave */
+  font-size: 10px;
+  color: #aaa;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 /* Keyframes */
-@keyframes heroIn{ from{opacity:0; transform:translateY(15px)} to{opacity:1; transform:none} }
-@keyframes avatarPop{ 0%{opacity:0; transform:scale(0.8)} 100%{opacity:1; transform:scale(1)} }
-@keyframes draw{ to{ stroke-dashoffset:0 } }
-@keyframes btnIn{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
-@keyframes heartbeat{
-  0%  {transform:scale(1)}
-  14% {transform:scale(1.12)}
-  28% {transform:scale(1)}
-  42% {transform:scale(1.12)}
-  70% {transform:scale(1)}
+@keyframes heroIn { from {opacity:0; transform:translateY(15px)} to {opacity:1; transform:none} }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes btnIn { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:none} }
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
 }
 
-@media(min-width:760px){
-  .avatar{width:160px;height:160px}
-  .hero-grid{gap:32px;}
+@media(min-width: 760px) {
+  .avatar { width: 150px; height: 150px; }
+  .hero-grid { gap: 32px; }
 }
