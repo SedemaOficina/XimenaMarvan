@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   
   <title>Tarjeta digital — Ximena Marvan Palavicini</title>
-  <meta name="description" content="Contacto oficial de Ximena Marvan Palavicini — SEDEMA CDMX." />
+  <meta name="description" content="Contacto oficial SEDEMA CDMX." />
   
   <!-- Open Graph -->
   <meta property="og:title" content="Ximena Marvan - SEDEMA CDMX" />
-  <meta property="og:description" content="Secretaria Particular. Tarjeta de contacto digital." />
   <meta property="og:image" content="https://sedemaoficina.github.io/foto.jpg" />
-  <meta property="og:type" content="profile" />
-
+  
   <meta name="robots" content="noindex,nofollow" />
 
   <!-- FUENTE OFICIAL -->
@@ -26,10 +24,12 @@
 
   <audio id="audioLatido" src="latido.mp3" preload="auto"></audio>
 
+  <!-- 1. HEADER -->
   <header class="top-bar">
     <img src="logo.png" alt="Gobierno de la Ciudad de México - SEDEMA">
   </header>
 
+  <!-- 2. HERO (Compacto) -->
   <section class="hero">
     <div class="wrap hero-content">
       <div class="hero-grid">
@@ -56,11 +56,11 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE ACCIONES (GRID) -->
+  <!-- 3. ACCIONES (GRID CON AIRE) -->
   <section class="actions-bg">
     <main class="wrap actions-grid">
 
-      <!-- 1. GUARDAR CONTACTO (Cuadrado + Primary) -->
+      <!-- Guardar Contacto -->
       <a class="btn square primary" href="Ximena Marvan Palavicini.vcf" download="Ximena_Marvan_Palavicini.vcf">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -70,7 +70,7 @@
         Guardar contacto
       </a>
 
-      <!-- 2. ENVIAR CORREO (Cuadrado) -->
+      <!-- Enviar Correo -->
       <a class="btn square" href="mailto:oficinasecretaria.sedema@gmail.com">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -80,7 +80,7 @@
         Enviar correo
       </a>
 
-      <!-- 3. COMPARTIR (Cuadrado) -->
+      <!-- Compartir -->
       <button class="btn square" id="shareBtn" type="button">
         <span class="icon">
            <svg viewBox="0 0 24 24" fill="currentColor">
@@ -90,7 +90,7 @@
         Compartir
       </button>
 
-      <!-- 4. PÁGINA INSTITUCIONAL (Cuadrado) -->
+      <!-- Sitio Web -->
       <a class="btn square" href="https://sedema.cdmx.gob.mx/" target="_blank" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -100,7 +100,7 @@
         Sitio Web
       </a>
 
-      <!-- 5. WHATSAPP (Rectangular / Ancho - AL FINAL) -->
+      <!-- WhatsApp (Rectangular al final) -->
       <a class="btn wide" href="https://wa.me/525536551261" target="_blank" rel="noopener">
         <span class="icon">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -112,11 +112,10 @@
     </main>
 
     <img src="corazon.png" alt="Toca para escuchar" class="hero-heart" id="heartTrigger" role="button" />
-    <p class="tap-hint">Toca el corazón</p>
+    <p class="tap-hint">Toca</p>
   </section>
 
   <script>
-    // Compartir
     const shareBtn = document.getElementById('shareBtn');
     if (navigator.share) {
       shareBtn.addEventListener('click', () => {
@@ -132,8 +131,6 @@
         alert("Enlace copiado");
       });
     }
-
-    // Audio
     const heart = document.getElementById('heartTrigger');
     const audio = document.getElementById('audioLatido');
     heart.addEventListener('click', () => {
