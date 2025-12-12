@@ -1,10 +1,10 @@
-/* PALETA OFICIAL GOB CDMX & Ajustes Web */
+/* PALETA OFICIAL GOB CDMX & AJUSTES WEB */
 :root {
-  --guinda: #9d2148;  /* Institucional */
-  --dorado: #b28e5c;  /* Institucional estándar */
-  --dorado-light: #e6cfa3; /* Ajuste: Dorado claro para texto sobre rojo */
-  --gris:   #55585a;  /* Texto institucional */
-  --marfil: #fffae9;  /* Fondos claros */
+  --guinda: #9d2148;  /* Color Institucional */
+  --dorado: #b28e5c;  /* Dorado Borde */
+  --dorado-light: #e6cfa3; /* Dorado Claro (Texto sobre fondo rojo) */
+  --gris:   #55585a;  /* Texto gris oscuro */
+  --marfil: #fffae9;  /* Fondo para hover */
   --blanco: #ffffff;  /* Blanco puro */
   --curve-speed: 2.8s;
 }
@@ -17,7 +17,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: var(--gris);
   background: var(--blanco);
-  overscroll-behavior-y: none; /* Evita rebote elástico en iOS */
+  overscroll-behavior-y: none; /* Evita rebote elástico en iPhone */
 }
 
 .wrap {
@@ -26,10 +26,10 @@ body {
   padding: 0 24px;
 }
 
-/* 1. HEADER OPTIMIZADO (Más delgado) */
+/* 1. HEADER COMPACTO (Para ganar espacio) */
 .top-bar {
   background: var(--blanco);
-  height: 65px; /* Reducido de 90px para ganar espacio */
+  height: 60px; /* Altura reducida */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,11 +39,11 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .top-bar img {
-  height: 48px; /* Ajuste proporcional */
+  height: 42px; 
   width: auto;
 }
 
-/* 2. HERO SECTION (Compacto) */
+/* 2. HERO SECTION */
 .hero {
   color: var(--blanco);
   position: relative;
@@ -54,78 +54,80 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(157, 33, 72, 0.85); /* Tinte guinda para legibilidad */
+  background: rgba(157, 33, 72, 0.85); /* Capa guinda para legibilidad */
 }
-
-/* Ajuste CLAVE para el "Fold": Reducir márgenes */
 .hero > .wrap {
   position: relative;
-  /* Arriba 15px, Abajo 10px. Mucho más pegado. */
-  padding: 15px 24px 10px; 
+  /* Padding ajustado para balance */
+  padding: 18px 24px 10px; 
   animation: heroIn .7s ease-out .1s both;
 }
 
 .hero-grid {
   display: grid;
-  /* Más espacio para el texto, menos para la foto */
   grid-template-columns: 1fr auto; 
-  gap: 12px;
+  gap: 15px; 
   align-items: center;
 }
 
-/* TIPOGRAFÍA & JERARQUÍA */
+/* --- TIPOGRAFÍA AUMENTADA --- */
+
+/* Nombre GRANDE */
 h1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900; /* Black */
-  margin: 0 0 2px;
-  line-height: 1.0; /* Bloque sólido */
+  font-weight: 900; /* Extra Bold */
+  margin: 0 0 4px;
+  line-height: 1.0; 
   letter-spacing: -0.5px;
 }
 h1 .line {
   display: block;
   white-space: nowrap;
-  font-size: clamp(26px, 7vw, 50px);
+  /* Tamaño dinámico: Mínimo 32px en cel, hasta 54px en PC */
+  font-size: clamp(32px, 8.5vw, 54px); 
 }
 
-/* CARGO "PREMIUM" (Dorado claro + Sombra + Espaciado) */
+/* Cargo GRANDE y Legible */
 .role {
   color: var(--dorado-light); /* Dorado claro para contraste */
   font-weight: 700;
-  margin: 6px 0 4px;
-  font-size: 13px; /* Pequeño y elegante */
+  margin: 8px 0 6px;
+  /* Tamaño aumentado para competir con los iconos */
+  font-size: 16px; 
   text-transform: uppercase;
-  letter-spacing: 2.5px; /* Muy separado */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para resaltar */
+  letter-spacing: 1.2px; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
+/* Adscripción */
 .org {
   margin: 2px 0 0;
-  opacity: 0.95;
-  font-size: 11px;
-  line-height: 1.3;
+  opacity: 1;
+  font-size: 13.5px; 
+  line-height: 1.35;
   font-weight: 400;
 }
 
-/* FOTO (Ajustada y centrada) */
+/* FOTO (Equilibrada) */
 .avatar {
-  width: 100px; /* Reducida para ganar espacio vertical */
-  height: 100px;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top center; /* Enfoca la cara */
+  object-position: top center;
   border: 3px solid var(--blanco);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: #ddd;
 }
 
-/* 3. CURVA FINA (Estilo Pluma) */
+/* 3. CURVA FINA */
 .curve { position: relative; z-index: 1; margin-top: -1px; }
 .curve svg { display: block; width: 100%; height: auto; }
 .curve-fill { fill: var(--blanco); }
 .curve-stroke {
   fill: none;
   stroke: var(--dorado);
-  stroke-width: 6; /* Fino (era 12) */
+  stroke-width: 6; /* Fino y elegante */
   stroke-linecap: round;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -139,10 +141,11 @@ h1 .line {
   padding: 20px 0 40px;
 }
 
-/* Ajuste móvil para evitar saltos (dvh) */
+/* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
   .actions-bg {
-    min-height: calc(100dvh - 65px); /* Restamos el header de 65px */
+    /* Altura dinámica para evitar saltos */
+    min-height: calc(100dvh - 60px); 
   }
 }
 
@@ -154,7 +157,7 @@ h1 .line {
   margin: 0 auto;
 }
 
-/* 5. BOTONES "LIMPIOS" (Blanco Puro) */
+/* 5. BOTONES LIMPIOS (Blanco Puro) */
 .btn {
   display: flex;
   align-items: center;
@@ -170,11 +173,11 @@ h1 .line {
   border-radius: 12px;
   padding: 13px 20px;
   
-  /* Borde Fino (1.5px) */
+  /* Borde fino */
   border: 1.5px solid var(--guinda);
   
-  /* FONDO BLANCO PURO (Corrección de amarillo) */
-  background: var(--blanco);
+  /* Fondo blanco puro */
+  background: var(--blanco); 
   color: var(--guinda);
   
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -184,7 +187,7 @@ h1 .line {
   animation: btnIn .5s ease both;
 }
 
-/* Hover: Aquí sí aparece el Marfil */
+/* Hover: Fondo Marfil */
 .btn:hover {
   background-color: var(--marfil);
   transform: translateY(-2px);
@@ -193,7 +196,7 @@ h1 .line {
 
 .btn:active { transform: scale(0.98); }
 
-/* BOTÓN DESTACADO (Sólido) */
+/* BOTÓN DESTACADO (Primary) */
 .btn.primary {
   background-color: var(--guinda);
   color: var(--blanco);
@@ -202,10 +205,9 @@ h1 .line {
   box-shadow: 0 4px 10px rgba(157, 33, 72, 0.3);
 }
 .btn.primary:hover {
-  background-color: #851b3d; /* Guinda oscuro */
+  background-color: #851b3d;
   border-color: #851b3d;
 }
-/* Icono blanco en el botón destacado */
 .btn.primary .icon svg { color: var(--blanco); }
 
 /* Iconos */
